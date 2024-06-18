@@ -37,6 +37,10 @@ class UserSchema(ModelSchema):
     "deleted": {
       "bson_type": "bool",
       "description": "The user's deletion status"
+    },
+    "token": {
+        "bson_type": "string",
+        "description": "The user's bearer token"
     }
   }
 

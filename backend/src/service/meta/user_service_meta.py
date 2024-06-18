@@ -1,13 +1,18 @@
 
 from abc import ABC, abstractmethod
 
-from src.schemas.user import UserGet
+from src.schemas.user import UserGet, UserModel
 
 class UserServiceMeta(ABC):
 
     @abstractmethod
     def get_user(self, user_id: str) -> UserGet:
         """Get user by id method definition"""
+        pass
+
+    @abstractmethod
+    def get_user_by_email(self, user_email: str) -> str:
+        """Get user by email method definition"""
         pass
 
     @abstractmethod

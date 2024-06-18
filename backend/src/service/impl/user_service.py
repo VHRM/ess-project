@@ -3,6 +3,8 @@ from src.service.meta.user_service_meta import UserServiceMeta
 from src.db.__init__ import database as db
 from typing import Dict
 from datetime import datetime
+from src.schemas.user import UserModel
+from uuid import uuid4
 
 class UserService(UserServiceMeta):
 
@@ -20,6 +22,16 @@ class UserService(UserServiceMeta):
                 status_code=HTTPResponses.ITEM_FOUND().status_code,
                 data=user,
             )
+    
+    @staticmethod
+    def get_user_by_email(user_email: str) -> str:
+        """Get item by id method implementation"""
+        db_user = db.get_items_by_field('users', 'email', user_email)
+        
+        if len(db_user) == 0:
+            return False
+
+        return db_user[0]
     
     @staticmethod
     def create_user(user: dict) -> HttpResponseModel:

@@ -186,3 +186,24 @@ class HTTPResponses:
             message="User deleted",
             status_code=200,
         )
+    
+    @staticmethod
+    def MISSING_PARAMETERS() -> HttpResponseModel:
+        return HttpResponseModel(
+            message="Missing required parameters",
+            status_code=404,
+        )
+    
+    @staticmethod
+    def UNAUTHORIZED() -> HttpResponseModel:
+        return HttpResponseModel(
+            message="Not authorized",
+            status_code=401,
+        )
+    
+    @staticmethod
+    def AUTHORIZED() -> HttpResponseModel:
+        return HttpResponseModel(
+            message="Authorized",
+            status_code=200,
+        )
